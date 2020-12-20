@@ -1,3 +1,0 @@
-- name: Install mysql server
-  debug:
-    msg: "Write your own role here for Install MySQL Server 8"

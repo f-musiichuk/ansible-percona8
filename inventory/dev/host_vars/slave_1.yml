@@ -1,5 +1,5 @@
 # Real host ip
-ansible_host: 18.196.65.231
+ansible_host: 18.193.125.102
 
 # SSH user which connect to servers
 ansible_user: ubuntu

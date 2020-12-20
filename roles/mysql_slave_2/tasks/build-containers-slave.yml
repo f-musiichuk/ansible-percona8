@@ -1,0 +1,32 @@
+- name: create docker container
+  community.general.docker_container:
+    user: root
+    name: "{{ docker_container.name }}"
+    image: "{{ db_slave.image_name }}:latest"
+    detach: true
+    env:
+      MYSQL_ROOT_PASSWORD: "{{ mysql.password }}"
+      MYSQL_SLAVE_USER: "{{ mysql.slave_username }}"
+      slave_password: "{{ mysql.slave_password }}"
+    volumes:
+      - "{{ docker_folder.config }}:/etc/mysql/conf.d"
+      - "{{ docker_folder.data }}:/var/lib/mysql"
+      - "{{ docker_folder.dump }}:/tmp/dump"
+    ports:
+      - "0.0.0.0:3306:3306"
+
+- name: Wait 30 seconds for ready
+  wait_for:
+    port: "3306"
+    delay: "30"
+
+- name: add replication user
+  script: >
+    slave.sh {{ docker_container.name }}
+    {{ mysql.username }} 
+    {{ mysql.password }}
+    {{ docker_container.master_host }}
+    {{ mysql.slave_username }} 
+    {{ mysql.slave_password }} 
+    {{ mysql.database }} 
+    {{ mysql.password }}

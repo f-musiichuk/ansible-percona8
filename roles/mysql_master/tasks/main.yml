@@ -1,0 +1,8 @@
+# Install docker-ce
+- include_tasks: docker-install.yml
+# Install docker-compose
+- include_tasks: docker-compose-install.yml
+#Build Percona
+- include_tasks: build-images.yml
+# Install Percona
+- include_tasks: build-containers-master.yml

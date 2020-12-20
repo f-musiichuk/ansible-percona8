@@ -1,13 +1,11 @@
-mysql:
-  children:
-    mysql-master:
-    mysql-slave:
-
-mysql-master:
+mysql_master:
   hosts:
     master:
 
-mysql-slave:
+mysql_slave_1:
   hosts:
-    slave1:
-    slave2:
+    slave_1:
+
+mysql_slave_2:
+  hosts:
+    slave_2:

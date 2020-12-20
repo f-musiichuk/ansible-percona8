@@ -1,17 +1,17 @@
-- name: Install mysql-server
-  hosts: mysql
+- name: Deploy mysql Docker master
+  hosts: mysql_master
+  become: true
   roles:
-  - role: mysql-server
-    tags: mysql-server
+    - role: mysql_master
 
-- name: Configure mysql master
-  hosts: mysql-master
+- name: Deploy mysql Docker slave-1
+  hosts: mysql_slave_1
+  become: true
   roles:
-  - role: mysql-master
-    tags: mysql-master
+    - role: mysql_slave_1
 
-- name: Configure mysql slaves
-  hosts: mysql-slave
+- name: Deploy mysql Docker slave-2
+  hosts: mysql_slave_2
+  become: true
   roles:
-  - role: mysql-slave
-    tags: mysql-slave
+    - role: mysql_slave_2

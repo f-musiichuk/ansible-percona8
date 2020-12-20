@@ -1,3 +1,0 @@
-- name: Configure mysql slave
-  debug:
-    msg: "Write your own role here for Configure MySQL Slave node"
