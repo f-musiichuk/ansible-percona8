@@ -1,10 +1,11 @@
 # Real host ip
-ansible_host: 18.196.65.231
+ansible_host: 185.162.84.92
 
 # SSH user which connect to servers
-ansible_user: ubuntu
+ansible_user: adminroot
+ansible_ssh_pass: yyyyyyyyyyyyyyyy
 
-ansible_ssh_private_key_file: /home/fedor/Downloads/fedor.pem
+#ansible_ssh_private_key_file: <path-to-pem-key>
 
 # Uncomment for Latest DEB-based distros (Ubuntu, Debian)
 ansible_python_interpreter: /usr/bin/python3

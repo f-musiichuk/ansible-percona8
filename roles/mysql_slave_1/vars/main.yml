@@ -6,6 +6,6 @@ docker_folder:
 docker_container:
       name: "slavedb"
       master_name: "masterdb"
-      master_host: "18.196.65.231"
+      master_host: "10.200.0.1"
 expose:
       port1: 3306
